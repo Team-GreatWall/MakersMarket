@@ -1,0 +1,78 @@
+﻿@model MakersMarket.Areas.Admin.Models.CreateProductViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { @class = "form-horizontal admin" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <fieldset>
+        <legend class="admin-filedset">
+            Add Product
+        </legend>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name)
+                <div class="checkbox" style="margin-top: 5px">
+                    <label>
+                        @Html.CheckBoxFor(model => model.IsOnSale) На разпродажба
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!--type-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryID, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.DropDownListFor(model => model.CategoryID, (SelectList)ViewBag.CategoryID, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryID)
+            </div>
+        </div>
+        <!--brand-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.BrandID, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.DropDownListFor(model => model.BrandID, (SelectList)ViewBag.BrandID, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BrandID)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShopID, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                    @Html.DropDownListFor(model => model.ShopID, (SelectList)ViewBag.ShopID, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Price)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

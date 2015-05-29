@@ -1,0 +1,156 @@
+/*products filters start*/
+@media(max-width: 566px){
+    #filter-column {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .filter{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    .filter hr{
+        background-color: #000000;!important;
+    }
+}
+
+@media screen and (min-width: 566px) and (max-width: 990px) {
+    .filter{
+        display: inline-block;
+        vertical-align: top;
+    }
+    .filter hr{
+        background-color: #ffffff;
+    }
+    #filter-column {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+
+}
+#view .filter {
+    width: 150px;
+    padding: 0px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#view .filter span {
+    font-weight:700;
+    font-size: 15px;
+}
+
+#view .filter ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+#view .filter li:hover {
+   text-decoration: underline;
+}
+/*products filters end*/
+/*product grid statrt*/
+#product-view-outer-div{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0;
+}
+
+#product-grid{
+    width: 220px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.product-in-grid{
+    background-repeat: no-repeat;
+    background-size: 220px ;
+    width: 220px;
+    height: 280px;
+}
+
+#details-background{
+    width: 220px;
+    height: 280px;
+}
+
+
+#details{
+    opacity: 0.7;
+    width: 220px;
+    position: absolute ;margin: 150px 10px 20px 10px ; text-align: center;
+    background-color: #ffffff
+}
+
+@media(max-width: 768px){
+    #product-view-outer-div {
+    width: 100%;
+    }
+}
+/*product grid end*/
+/*upload files start*/
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+}
+
+.image-box img{
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.image-box-brand img{
+    width: 250px;
+    padding-bottom: 15px;
+}
+
+.image-box-brand-logo img{
+    max-height: 60px;
+    padding-bottom: 15px;
+}
+
+.image-box-collection img{
+    width: 250px;
+    padding-bottom: 15px;
+}
+/*upload files end*/
+
+.size-and-numbers table{
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 40px;
+}
+
+.size-and-numbers table td{
+    width: 50px;
+    border: 1px solid #000000;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.ng-hide-add, .ng-hide-remove {
+    /* ensure visibility during the transition */
+    display: block !important; /* yes, important */
+}

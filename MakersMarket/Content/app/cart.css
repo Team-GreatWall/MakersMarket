@@ -1,0 +1,100 @@
+.cartButtons{
+    display:inline-block;
+    margin-top:5px;
+}
+
+@media(min-width:450px){
+    #cartContainer{
+        margin-top:50px;
+    }
+    #cart-image{
+        width:100px;
+
+    }
+    #item-operations{
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+
+    #priceCol{
+        font-size:15px;
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    #quanCol{
+        margin-right:15px;
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    #subtotalCol{
+
+        margin-right:30px;
+        font-size:15px;
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    .productInfo{
+        display: inline-block;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    #inputSmall{
+        width:50px;
+    }
+}
+
+@media(max-width: 450px){
+    #cartContainer{
+        margin-top:50px;
+    }
+    #cart-image{
+        width:100px;
+
+    }
+    th{
+        font-size:10px;
+    }
+    #imgCol{
+        padding-left:2px;
+        padding-right:2px;
+    }
+    #item-operations{
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+
+    #priceCol{
+        font-size:15px;
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    #quanCol{
+        margin-right:15px;
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    #subtotalCol{
+
+        margin-right:30px;
+        font-size:15px;
+        padding-top:50px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    .productInfo{
+        display: inline-block;
+        padding-left:2px;
+        padding-right:2px;
+    }
+    #inputSmall{
+        width:50px;
+    }
+}
+

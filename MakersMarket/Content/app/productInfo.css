@@ -1,0 +1,154 @@
+.product-additional-image{
+    margin:50px;
+}
+.small-image{
+    margin:10px;
+    width:50px;
+}
+#product-views{
+    margin-top:20px;
+    margin-left:20px;
+}
+.product-images{
+    width:60px;
+}
+.img{
+    padding-right:10px;
+    margin-top:5px;
+}
+#img-container{
+    border:solid 1px #dcdcdc;
+    border-radius:5px;
+    padding:0;
+    margin-top:50px;
+}
+#product-main-image{
+    margin:50px;
+}
+
+#big-image{
+    margin:10px;
+    width:300px;
+}
+#product-info-container{
+    margin-top:50px;
+}
+#product-top-info{
+    border-bottom:solid #dcdcdc 1px;
+}
+#product-price{
+    font-size:10mm;
+}
+
+#product-name{
+    font-size:10mm;
+    margin-bottom:0;
+}
+
+#product-size{
+    font-size:5mm;
+    margin-bottom:0;
+}
+
+#sizes{
+    display:inline-block;
+    margin:2px;
+    padding:2px;
+    border:solid #808080 1px;
+    font-size:20px;
+    height:40px;
+    width:40px;
+    text-align: center;
+    border-radius:5px;
+}
+
+
+#add-to-cart{
+    margin-top:10px;
+
+}
+
+#product-summary{
+    margin-top:10px;
+    border-top:solid #dcdcdc 1px;
+}
+
+.selectedSize{
+    background-color: #5e5e5e;
+    color:#ffffff;
+
+}
+#sizes{
+    cursor:pointer;
+    cursor:hand;
+}
+
+#related-products-container{
+    padding-left:0;
+    padding-right:0;
+    border:solid 1px #dcdcdc;
+    border-radius:5px;
+    margin-top:50px;
+    height:600px;
+}
+
+.related-product{
+    margin-top:30px;
+}
+#img-center {
+    width:100px;
+}
+
+#recently-viewed-products{
+    border:solid 1px #dcdcdc;
+    border-radius:5px;
+    margin-top:10px;
+    margin-bottom:10px;
+    height:200px;
+}
+#magnify {
+    margin-top:50px;
+    margin-right:20px;
+    padding-left:0px;
+    padding-right:0px;
+    width:100%
+    position: relative;
+    display:inline-block;
+}
+
+/*Lets create the magnifying glass*/
+#large {
+    width: 450px;height:500px;
+    display: none;
+    border: solid 1px #000000;
+    margin-top:0px;
+
+}
+
+
+#small {
+    display: block;
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+    padding-right:5px;
+}
+
+#magnifyOuterDiv{
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 60px;
+    background-color: #ffffff
+}
+
+
+@media(max-width: 750px){
+    #large{
+        opacity: 0 ;
+    }
+    #magnifyOuterDiv {
+        opacity: 0;
+    }
+}
+

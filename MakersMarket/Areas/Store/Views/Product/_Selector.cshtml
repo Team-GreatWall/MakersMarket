@@ -1,0 +1,43 @@
+﻿@model MakersMarket.Models.View.Product.SelectorViewModel
+
+<div class="col-md-2 col-sm-12" id="filter-column">
+
+    <div class="filter">
+        <span>Brand</span>
+        <hr />
+        @if (Model.Filters.ContainsKey("brand"))
+        {
+            @Html.ActionLink(Model.Filters["brand"].ToString() + " (x)", "Index", (RouteValueDictionary)ViewBag.FilterProductsWithout(Model.Filters, "brand"))
+        }
+        else
+        {
+            <ul>
+                @foreach (var item in Model.Brands)
+                {
+                    <li>
+                        @Html.ActionLink(item.Name, "Index", (RouteValueDictionary)ViewBag.FilterProductsWith(Model.Filters, "brand", item.Name))
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+    <div class="filter">
+        <span>Category</span>
+        <hr />
+        @if (Model.Filters.ContainsKey("category"))
+        {
+            @Html.ActionLink(Model.Filters["category"].ToString() + " (x)", "Index", (RouteValueDictionary)ViewBag.FilterProductsWithout(Model.Filters, "category"))
+        }
+        else
+        {
+            <ul>
+                @foreach (var item in Model.Categories)
+                {
+                    <li>
+                        @Html.ActionLink(item.Name, "Index", (RouteValueDictionary)ViewBag.FilterProductsWith(Model.Filters, "category", item.Name))
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>
