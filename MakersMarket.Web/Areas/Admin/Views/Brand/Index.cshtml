@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MakersMarket.Models.Brand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_Layout.cshtml";
+
+    var pagedList = (IPagedList)Model;
+}
+@using PagedList.Mvc;
+@using PagedList;
+
+<div id="admin-add-button" class="form-group">
+    @Html.ActionLink("Create New", "Create", "Brand", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+</div>
+<div class="row" id="admin-list-headers">
+    <div class="col-xs-3">@Html.DisplayNameFor(model => model.Name)</div>
+    <div class="col-xs-3">Редакция</div>
+</div>
+@foreach (var item in Model) {
+    <div class="row" ng-repeat="brand in brands" style="border-top: 2px solid slategray; background-color: #f9f9f9">
+        <div style="margin-bottom: 45px; margin-top: 9px">
+            <div class="col-xs-3">
+                @Html.DisplayFor(modelItem => item.Name)
+            </div>
+            <div class="col-xs-3">
+                @Html.Partial("_ItemActions", new ViewDataDictionary { { "ItemID", item.Id }, { "ItemType", "Brand" } })
+            </div>
+        </div>
+    </div>
+}
+@Html.PagedListPager(pagedList, page => Url.Action("Index", new { page }))

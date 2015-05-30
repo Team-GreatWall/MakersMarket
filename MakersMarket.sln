@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{2287FAA1-BF10-4E76-8A15-5C4655F3326D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{87F288C5-4B23-46E6-AC08-B1F510A27F8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Libraries", "External Libraries", "{80F145E5-2A53-4785-A322-17C350A217DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{43785428-5F5D-4307-93B2-ADB6DA4E8837}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{12CD3BF7-5BCD-45CC-A8A4-EF5C57F4AE78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakersMarket.Web", "MakersMarket.Web\MakersMarket.Web.csproj", "{F230A645-8C18-4F49-A34E-61B6D2552788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakersMarket.Data", "MakersMarket.Data\MakersMarket.Data.csproj", "{19BF7B59-567A-4B6C-BD84-28955C01D5D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakersMarket.Models", "MakersMarket.Models\MakersMarket.Models.csproj", "{6E6B1EC5-E6F4-48A4-AB18-B05B88AE417A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F230A645-8C18-4F49-A34E-61B6D2552788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F230A645-8C18-4F49-A34E-61B6D2552788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F230A645-8C18-4F49-A34E-61B6D2552788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F230A645-8C18-4F49-A34E-61B6D2552788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19BF7B59-567A-4B6C-BD84-28955C01D5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19BF7B59-567A-4B6C-BD84-28955C01D5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19BF7B59-567A-4B6C-BD84-28955C01D5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19BF7B59-567A-4B6C-BD84-28955C01D5D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E6B1EC5-E6F4-48A4-AB18-B05B88AE417A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6B1EC5-E6F4-48A4-AB18-B05B88AE417A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6B1EC5-E6F4-48A4-AB18-B05B88AE417A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6B1EC5-E6F4-48A4-AB18-B05B88AE417A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F230A645-8C18-4F49-A34E-61B6D2552788} = {12CD3BF7-5BCD-45CC-A8A4-EF5C57F4AE78}
+		{19BF7B59-567A-4B6C-BD84-28955C01D5D3} = {2287FAA1-BF10-4E76-8A15-5C4655F3326D}
+		{6E6B1EC5-E6F4-48A4-AB18-B05B88AE417A} = {2287FAA1-BF10-4E76-8A15-5C4655F3326D}
+	EndGlobalSection
+EndGlobal

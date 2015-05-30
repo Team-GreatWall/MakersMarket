@@ -1,0 +1,69 @@
+﻿@model MakersMarket.Web.Areas.Store.Models.Cart.CartIndexViewModel
+@{
+    ViewBag.Title = "Cart";
+}
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Edit</th>
+            <th>Price per unit</th>
+            <th>Quantity</th>
+            <th class="text-right">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td id="imgCol" class="col-md-6">
+                    <div class="productInfo">
+                        <img id="cart-image" class="img-responsive" src="http://files.parsetfss.com/b43d59ee-38b7-4a4d-aea2-8aab8d06ea9c/tfss-bcd8839c-778e-4364-8e6c-2b4b25def120-pasar_fashion_3140_grande.jpg" />
+                    </div>
+                    <div id="product-description" class="productInfo">
+                        <p>@item.Product.Brand.Name</p>
+                        <p>@item.Product.Name - M</p>
+
+                    </div>
+                </td>
+                <td id="item-operations" class="col-md-2">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => item.Product.Id, new { @Name = "Product.ID" })
+
+                        <button type="submit" name="Edit">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                        <button type="submit" name="Remove">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    }
+                </td>
+                <td id="priceCol" class="col-md-1 text-center">
+                    @item.Product.Price lv
+                </td>
+                <td id="quanCol" clas="col-md-1">
+                    <div class="form-group">
+                        <input class="form-control input-sm" type="text" id="inputSmall" value="@item.Quantity">
+                    </div>
+                </td>
+                <td class="col-md-2 text-center" id="subtotalCol">
+                    @Model.CartTotal lv
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pull-right">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <input type="submit" name="Clear" value="Empty cart" class="btn btn-danger" />
+        <input type="submit" name="CheckOut" value="Check out" class="btn btn-success" />
+    }
+</div>

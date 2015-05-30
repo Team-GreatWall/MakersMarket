@@ -1,0 +1,13 @@
+﻿<a href='@Url.Action("Edit", new { id = ViewData["ItemID"] })' class="btn">
+    <i class="glyphicon glyphicon-edit"></i>
+</a>
+@using (Html.BeginForm(Html.BeginForm("Delete", (string) ViewData["ItemType"], FormMethod.Post, new { style = "display: inline;" })))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(modelItem => ViewData["ItemId"], new { @Name = ViewData["ItemType"] + ".ID" })
+
+    <button type="submit" class="btn btn-link">
+        <i class="glyphicon glyphicon-remove"></i>
+    </button>
+}
+

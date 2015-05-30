@@ -1,0 +1,77 @@
+/*home start*/
+.brandImage div img{
+    width:100%;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+
+}
+
+.brandImage div img:hover{
+    border: 2px solid #000000;
+
+}
+
+.collectionsImage div img{
+    width:100%;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+}
+
+.collectionsImage div img:hover{
+    border: 2px solid #000000;
+}
+
+#home-companies-right-col{
+    padding-left: 0;
+}
+
+#home-companies-left-col{
+    padding-right: 0;
+}
+
+#home-collections-right-col{
+    padding-left: 0;
+
+}
+
+#home-collections-left-col{
+    padding-right: 0;
+
+}
+#home-collections-center-col{
+    padding-left: 8px;
+    padding-right: 7px;
+}
+
+#home-collections-right-col img{
+    padding-left: 0;
+}
+
+#home-collections-left-col img{
+    padding-right: 0;
+}
+
+@media(max-width: 750px){
+    #home-collections-right-col{
+        padding: 0;
+    }
+    #home-collections-center-col{
+        padding: 0;
+    }
+    #home-collections-left-col{
+        padding: 0;
+    }
+    #home-companies-right-col{
+         padding-right: 0;
+     }
+
+    #home-companies-left-col{
+        padding-left: 0;
+    }
+
+
+}
+
+.home-line-between-sections{
+    margin-bottom: 25px;
+}
