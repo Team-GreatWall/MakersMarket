@@ -46,18 +46,21 @@
             <div class="navbar-collapse collapse navbar-inverse-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        @Html.ActionLink("All products", "Index", new { area = "Store", controller = "Product" })
+                        @Html.ActionLink("All shops", "Index", new { area = "Store", controller = "Shop" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("All products", "Index", new {area = "Store", controller = "Product"})
                     </li>
                     @if (User.IsInRole("AppAdmin"))
                     {
                         <li>
-                            @Html.ActionLink("Administrator", "Index", new { area = "Admin", controller = "Index" })
+                            @Html.ActionLink("Administrator", "Index", new {area = "Admin", controller = "Index"})
                         </li>
                     }
                     @if (Request.IsAuthenticated && !User.IsInRole("AppAdmin"))
                     {
                         <li>
-                            @Html.ActionLink("My shops", "Index", new { area = "LoggedUser", controller = "Index" })
+                            @Html.ActionLink("My shops", "Index", new {area = "LoggedUser", controller = "Index"})
                         </li>
                     }
                 </ul>

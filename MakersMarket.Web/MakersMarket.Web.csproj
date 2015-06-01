@@ -237,10 +237,12 @@
     <Compile Include="Areas\LoggedUser\Models\CreateProductViewModel.cs" />
     <Compile Include="Areas\Store\Controllers\CartController.cs" />
     <Compile Include="Areas\Store\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Store\Controllers\ShopController.cs" />
     <Compile Include="Areas\Store\Models\Cart\CartIndexViewModel.cs" />
     <Compile Include="Areas\Store\Models\Product\ProductDetailsViewModel.cs" />
     <Compile Include="Areas\Store\Models\Product\ProductIndexViewModel.cs" />
     <Compile Include="Areas\Store\Models\Product\SelectorViewModel.cs" />
+    <Compile Include="Areas\Store\Models\Shop\ShopOutputModel.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
     <Compile Include="Attributes\HttpParamActionAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -344,6 +346,9 @@
     <Content Include="Areas\Store\Views\Product\Index.cshtml" />
     <Content Include="Areas\Store\Views\Product\_Selector.cshtml" />
     <Content Include="Areas\Store\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Store\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Store\Views\Shop\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Shop\DisplayTemplates\ShopOutputModel.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />

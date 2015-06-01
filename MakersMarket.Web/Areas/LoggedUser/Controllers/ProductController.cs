@@ -59,8 +59,10 @@
             {
                 Product product = new Product();
                 product.Name = productData.Name;
-                product.Category = this.Data.Categories.Find(productData.CategoryId);
-                product.Brand = this.Data.Brands.Find(productData.BrandId);
+//                product.Category = this.Data.Categories.Find(productData.CategoryId);
+                product.CategoryId = productData.CategoryId;
+//                product.Brand = this.Data.Brands.Find(productData.BrandId);
+                product.BrandId = productData.BrandId;
                 product.Price = productData.Price;
                 product.ShopId = productData.ShopId;
                 product.Description = productData.Description;

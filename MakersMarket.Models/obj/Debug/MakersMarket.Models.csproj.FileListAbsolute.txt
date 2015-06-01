@@ -1,0 +1,14 @@
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\MakersMarket.Models.dll.config
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\MakersMarket.Models.dll
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\MakersMarket.Models.pdb
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\EntityFramework.dll
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\EntityFramework.xml
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\obj\Debug\MakersMarket.Models.csprojResolveAssemblyReference.cache
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\obj\Debug\MakersMarket.Models.dll
+C:\Users\Jazzy\Documents\Visual Studio 2013\Projects\MVC\TeamWork\MakersMarket.Models\obj\Debug\MakersMarket.Models.pdb
