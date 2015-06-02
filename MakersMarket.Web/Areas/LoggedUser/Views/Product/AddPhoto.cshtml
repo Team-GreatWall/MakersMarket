@@ -1,4 +1,21 @@
-﻿<h2>Basic File Upload</h2>
+﻿@model List<MakersMarket.Models.Image>
+@{
+    ViewBag.Title = "Add photo";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+    @foreach (var image in @Model)
+    {
+        <div>
+            <img style="width:250px;height:250px" src="@image.ImagePath" alt="Alternate Text" />
+        </div>
+       @Html.ActionLink("Delete image", "DeletePhoto", "Product", new { photoId = @image.Id, id = this.ViewBag.productId }, null)
+        ViewBag.kur = "kur";
+        
+       
+    }
+
+
 @using (Html.BeginForm("AddPhoto",
                         "Product",
                         new { id = this.ViewBag.productId },
@@ -11,3 +28,5 @@
   
 }
 @ViewBag.Message
+
+@*@Html.ActionLink("Complete", "index")*@

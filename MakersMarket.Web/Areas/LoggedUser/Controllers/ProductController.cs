@@ -11,6 +11,8 @@
     using Data.Data;
     using MakersMarket.Models;
     using PagedList;
+    using MakersMarket.Data;
+    using System.Collections.Generic;
     public class ProductController : LoggedUserController
     {
         public ProductController(IMakersMarketData data)
@@ -122,14 +124,15 @@
         public ActionResult AddPhoto(int id)
         {
             this.ViewBag.productId = id;
-            return this.View();
+            var images = this.Data.Images.All().Where(i => i.ProductId == id).Select(i => i).ToList();
+            return this.View(images);
         }
 
         [HttpPost]
        // [ValidateAntiForgeryToken]
         public ActionResult AddPhoto(int id ,HttpPostedFileBase file)
         {
-         
+            this.ViewBag.productId = id;
             if (file != null && file.ContentLength > 0)
                 try
                 {
@@ -151,8 +154,20 @@
             {
                 ViewBag.Message = "You have not specified a file.";
             }
-            return View();
+         
+            var productImages = this.Data.Images.All().Where(i => i.ProductId == id).Select(i => i).ToList();
+
+            this.ViewBag.images = productImages;
+
+            return View(productImages);
         }
 
+
+        public ActionResult DeletePhoto(int id, int photoId)
+        {
+            this.Data.Images.Delete(photoId);
+            this.Data.SaveChanges();
+            return Redirect("/LoggedUser/Product/AddPhoto/" + id);
+        }
     }
 }
