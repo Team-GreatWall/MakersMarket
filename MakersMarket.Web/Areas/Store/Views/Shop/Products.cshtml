@@ -1,0 +1,37 @@
+﻿@model MakersMarket.Web.Areas.Store.Models.Shop.ProductsPagedViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_Layout.cshtml";
+}
+@using PagedList.Mvc;
+
+<div class="row">
+    <div class="col-md-10 col-sm-12" id="product-view-outer-div">
+        <div style="display: inline-block">
+
+         @*  @foreach (var prod in Model.Products)
+            {
+                <div id="product-grid">
+                    <a href="@Url.Action("Details", "Product", new { id = prod.Id })">
+                        <div class="product-in-grid" style="background-image: url('@prod.Images.FirstOrDefault().ImagePath');">
+                            <div id="details-background">
+                                <div id="details">
+                                    <h4>@Html.DisplayFor(modelItem => prod.Name)</h4>
+                                    <h4>@Html.DisplayFor(modelItem => prod.Price) lv.</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }*@
+
+
+            
+
+
+            @Html.DisplayFor(i => i.Products)    
+            @Html.PagedListPager(Model.Products, page => Url.Action("Products", "Shop", new {id = Model.ShopId, page, pageSize = Model.PageSize}))
+        </div>
+    </div>
+</div>

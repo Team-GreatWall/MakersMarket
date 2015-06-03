@@ -1,8 +1,10 @@
-﻿@model List<MakersMarket.Web.Areas.Store.Models.Shop.ShopOutputModel>
+﻿@using PagedList.Mvc
+@model MakersMarket.Web.Areas.Store.Models.Shop.ShopsPagedViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "../Shared/_Layout.cshtml";
 }
 
-@Html.DisplayFor(s => s)
-
+@Html.DisplayFor(s => s.Shops)
+@Html.PagedListPager(Model.Shops,
+page => Url.Action("Index", "Shop", new {page, pageSize = Model.PageSize }))

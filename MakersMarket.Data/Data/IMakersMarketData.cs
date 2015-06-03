@@ -10,6 +10,7 @@
         IRepository<Brand> Brands { get; }
         IRepository<CartItem> CartItems { get; }
         IRepository<Image> Images { get; }
+        IRepository<ImageShop> ImagesShop { get; }
         IRepository<Product> Products { get; }
         IRepository<Shop> Shops { get; }
         int SaveChanges();

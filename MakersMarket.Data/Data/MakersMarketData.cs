@@ -40,6 +40,11 @@
             get { return this.GetRepository<Image>(); }
         }
 
+        public IRepository<ImageShop> ImagesShop
+        {
+            get { return this.GetRepository<ImageShop>(); }
+        }
+
         public IRepository<Product> Products
         {
             get { return this.GetRepository<Product>(); }

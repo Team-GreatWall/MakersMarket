@@ -12,6 +12,8 @@
 
         IDbSet<Image> Images { get; set; }
 
+        IDbSet<ImageShop> ImagesShop { get; set; }
+
         IDbSet<Product> Products { get; set; }
 
         IDbSet<Shop> Shops { get; set; }

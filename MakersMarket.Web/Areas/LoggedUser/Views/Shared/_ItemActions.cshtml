@@ -1,4 +1,5 @@
-﻿<a href='@Url.Action("Edit", new { id = ViewData["ItemID"] })' class="btn">
+﻿@using System.Security.Policy
+<a href='@Url.Action("Edit", new { id = ViewData["ItemID"] })' class="btn">
     <i class="glyphicon glyphicon-edit"></i>
 </a>
 @using (Html.BeginForm(Html.BeginForm("Delete", (string) ViewData["ItemType"], FormMethod.Post, new { style = "display: inline;" })))

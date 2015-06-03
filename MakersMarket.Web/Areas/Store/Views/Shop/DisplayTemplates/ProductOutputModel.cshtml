@@ -1,0 +1,14 @@
+﻿@model MakersMarket.Web.Areas.Store.Models.Product.ProductOutputModel
+           
+<div id="product-grid">
+    <a href="@Url.Action("Details", "Product", new { id = Model.Id })">
+        <div class="product-in-grid" style="background-image: url('@Model.Images.FirstOrDefault().ImagePath');">
+            <div id="details-background">
+                <div id="details">
+                    <h4>@Html.DisplayFor(modelItem => Model.Name)</h4>
+                    <h4>@Html.DisplayFor(modelItem => Model.Price) lv.</h4>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

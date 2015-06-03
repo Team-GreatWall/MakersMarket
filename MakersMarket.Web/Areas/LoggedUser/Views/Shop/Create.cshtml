@@ -1,14 +1,15 @@
-﻿@model MakersMarket.Models.Shop
+﻿@model MakersMarket.Web.Areas.LoggedUser.Models.ShopInputViewModel
 
 @{
     ViewBag.Title = "Create";
     Layout = "../Shared/_Layout.cshtml";
+    var m = Model;
 }
 
-@using (Html.BeginForm("Create", "Shop", FormMethod.Post, new { @class = "form-horizontal admin" }))
-{
+@using (Html.BeginForm("Create", "Shop", FormMethod.Post, new { @class = "form-horizontal admin", @enctype = "multipart/form-data" }))
+{                                                                               // enctype = "multipart/form-data"
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model=>model.UserId)
+    
     <fieldset class="admin-filedset">
         <legend>
             Add Shop
@@ -16,17 +17,37 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "col-lg-2 control-label" })
             <div class="col-lg-10">
-                @Html.TextAreaFor(model => model.Name, new { @class = "form-control" })
+                @Html.TextAreaFor(model => model.Name, new { @class = "form-control", @type = "text" })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, new { @class = "col-lg-2 control-label" })
+            @Html.LabelFor(model => model.Description, new {@class = "col-lg-2 control-label"})
             <div class="col-lg-10">
-                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                @Html.TextAreaFor(model => model.Description, new {@class = "form-control"})
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageFile, new {@class = "col-lg-2 control-label"})
+            <div class="col-lg-10">
+                <span class="btn btn-default btn-file col-lg-2">
+                    Browse <input type="file" name="ImageFile" id="file" class="form-control" />
+                </span>
+                <div class="col-lg-1"></div>
+                <input calss="form-control col-lg-8" type="text" id="fileVal" value="" />
+                @ViewBag.Message
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="currentImage" class="col-lg-2 control-label">Current Image</label>
+            <div class="col-lg-10">
+                <img id="currentImage" class="form-control-static" src="@Model.ImagePath" alt="Current Image" height="250px" />
+            </div>
+        </div>
+
         <div class="col-lg-10 col-lg-offset-2">
             <input type="submit" value="Create" class="btn btn-primary" />
         </div>
@@ -39,4 +60,18 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#file').on('change', function () {
+            $('#fileVal').val($('#file').val());
+            console.log($('#fileVal').val());
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#currentImage')
+                        .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    </script>
 }
