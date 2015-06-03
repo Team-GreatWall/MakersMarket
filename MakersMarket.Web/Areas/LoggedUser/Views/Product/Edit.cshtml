@@ -5,69 +5,79 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { @class = "form-horizontal admin" }))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.Id)
 
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    <fieldset>
+        <legend class="admin-filedset">
+            Edit Product
+        </legend>
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+            @Html.LabelFor(model => model.Name, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Name)
+                <div class="checkbox" style="margin-top: 5px">
+                    <label>
+                        @Html.CheckBoxFor(model => model.IsOnSale) На разпродажба
+                    </label>
+                </div>
             </div>
         </div>
-
+        <!--type-->
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId, "CategoryID", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CategoryID", String.Empty)
+            @Html.LabelFor(model => model.CategoryId, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.DropDownListFor(model => model.CategoryId, (SelectList)ViewBag.CategoryID, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoryId)
             </div>
         </div>
-
+        <!--brand-->
         <div class="form-group">
-            @Html.LabelFor(model => model.BrandId, "BrandID", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("BrandID", String.Empty)
+            @Html.LabelFor(model => model.BrandId, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.DropDownListFor(model => model.BrandId, (SelectList)ViewBag.BrandID, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BrandId)
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.IsOnSale, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IsOnSale)
-                @Html.ValidationMessageFor(model => model.IsOnSale)
+            @Html.LabelFor(model => model.ShopId, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.DropDownListFor(model => model.ShopId, (SelectList)ViewBag.ShopID, new { @class = "form-control" })
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Price)
+            @Html.LabelFor(model => model.Price, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Price)
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description)
+            @Html.LabelFor(model => model.Description, new { @class = "col-lg-2 control-label" })
+            <div class="col-lg-10">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>
-
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-lg-10 col-lg-offset-2">
+                <input type="submit" value="Edit" class="btn btn-primary" />
             </div>
         </div>
+    </fieldset>
+}
+
+@foreach (var image in this.ViewBag.images)
+{
+    <div>
+        <img style="width:250px;height:250px" src="@image.ImagePath" alt="Alternate Text" />
     </div>
+    @Html.ActionLink("Delete image", "DeletePhoto", "Product", new { photoId = @image.Id, id = Model.Id }, null)
+    ViewBag.kur = "kur";
 }
 
 <div>

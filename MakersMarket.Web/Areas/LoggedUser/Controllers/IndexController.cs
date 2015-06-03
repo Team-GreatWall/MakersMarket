@@ -8,10 +8,6 @@
             : base(data)
         {
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
 
     }
 }

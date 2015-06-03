@@ -60,7 +60,7 @@
                     @if (Request.IsAuthenticated && !User.IsInRole("AppAdmin"))
                     {
                         <li>
-                            @Html.ActionLink("My shops", "Index", new {area = "LoggedUser", controller = "Index"})
+                            @Html.ActionLink("My shops", "Index", new {area = "LoggedUser", controller = "Shop"})
                         </li>
                     }
                 </ul>

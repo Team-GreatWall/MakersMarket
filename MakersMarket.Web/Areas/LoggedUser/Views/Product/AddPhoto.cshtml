@@ -3,30 +3,28 @@
     ViewBag.Title = "Add photo";
     Layout = "../Shared/_Layout.cshtml";
 }
-
+<div style="margin:15px">
     @foreach (var image in @Model)
     {
         <div>
             <img style="width:250px;height:250px" src="@image.ImagePath" alt="Alternate Text" />
         </div>
-       @Html.ActionLink("Delete image", "DeletePhoto", "Product", new { photoId = @image.Id, id = this.ViewBag.productId }, null)
+        @Html.ActionLink("Delete image", "DeletePhoto", "Product", new { photoId = @image.Id, id = this.ViewBag.productId }, null)
         ViewBag.kur = "kur";
-        
-       
     }
 
 
-@using (Html.BeginForm("AddPhoto",
+    @using (Html.BeginForm("AddPhoto",
                         "Product",
                         new { id = this.ViewBag.productId },
                         FormMethod.Post,
                         new { enctype = "multipart/form-data" }))
-{
-    <label for="file">Upload Image:</label>
-    <input type="file" name="file" id="file" />
-    <input type="submit" value="Upload Image" />
-  
-}
-@ViewBag.Message
+    {
+        @Html.AntiForgeryToken()
+        <label for="file">Upload Image:</label>
+        <input type="file" name="file" id="file" />
+        <input type="submit" value="Upload Image" />
+    }
 
-@*@Html.ActionLink("Complete", "index")*@
+    @ViewBag.Message
+</div>
