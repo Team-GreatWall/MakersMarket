@@ -284,6 +284,7 @@
     <Content Include="Content\images\brands\apriy-cover_grande.jpg" />
     <Content Include="Content\images\brands\nemis_collection_cover_grande.jpg" />
     <Content Include="Content\images\brands\salesImg.jpg" />
+    <Content Include="Content\images\camera-no-image.jpg" />
     <Content Include="Content\images\cards-logos.png" />
     <Content Include="Content\images\delete-button.png" />
     <Content Include="Content\images\edit-button.png" />

@@ -5,6 +5,8 @@ namespace MakersMarket.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MakersMarket.Data.MakersMarketDbContext>
     {
@@ -16,6 +18,20 @@ namespace MakersMarket.Data.Migrations
 
         protected override void Seed(MakersMarketDbContext context)
         {
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+            var userStore = new UserStore<User>(context);
+            var userManager = new UserManager<User>(userStore);
+
+            // Seed roles
+            var adminRole = CreateRole(context, roleManager, "AppAdmin");
+
+            // Seed users
+            var user = CreateUser(context, userManager, "user", "123456");
+
+            var admin = CreateUser(context, userManager, "admin", "123456");
+            userManager.AddToRole(admin.Id, adminRole.Name);
+
             // Initialize Categories
             if (context.Categories.Count() <= 0 || context.Categories == null)
             {
@@ -75,7 +91,40 @@ namespace MakersMarket.Data.Migrations
                 context.Brands.Add(cooperative);
                 context.SaveChanges();
             }
+              
 
+     
+
+        }
+        private IdentityRole CreateRole(MakersMarketDbContext context, RoleManager<IdentityRole> roleManager, string roleName)
+        {
+            if (context.Roles.Any(r => r.Name == roleName))
+            {
+                return context.Roles.First(r => r.Name == roleName);
+            }
+            else
+            {
+                var role = new IdentityRole { Name = roleName };
+
+                roleManager.Create(role);
+
+                return role;
+            }
+        }
+     private User CreateUser(MakersMarketDbContext context, UserManager<User> userManager, string username, string password)
+        {
+            if (context.Users.Any(u => u.UserName == username))
+            {
+                return context.Users.First(u => u.UserName == username);
+            }
+            else
+            {
+                var user = new User { UserName = username };
+
+                userManager.Create(user, password);
+
+                return user;
+            }
         }
     }
 }

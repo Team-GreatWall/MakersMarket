@@ -72,17 +72,15 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = this.Data.Products.Find(id);
+            var images = this.Data.Images.All().Where(i => i.ProductId == id).Select(i => i).ToList();
+            product.Images = images;
             if (product == null)
             {
                 return HttpNotFound();
             }
             var relatedProducts = this.Data.Products.All().Include(p => p.Brand).Include(p => p.Category).Where(p => p.CategoryId == product.CategoryId && p.Id != product.Id).Take(4);
-            ProductDetailsViewModel productDetails = new ProductDetailsViewModel
-            {
-                Product = product,
-                RelatedProducts = relatedProducts
-            };
-            return View(productDetails);
+            this.ViewBag.relatedProducts = relatedProducts;
+            return View(product);
         }
 
         private RouteValueDictionary FilterProductsWith(RouteValueDictionary filter, string key, object value)

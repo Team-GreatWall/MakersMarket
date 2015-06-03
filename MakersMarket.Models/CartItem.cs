@@ -12,6 +12,8 @@
 
         public System.DateTime DateCreated { get; set; }
 
+        public string ProductImage { get; set; }
+
         public int ProductId { get; set; }
 
         public virtual Product Product { get; set; }
