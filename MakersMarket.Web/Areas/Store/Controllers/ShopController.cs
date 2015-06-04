@@ -33,7 +33,7 @@ namespace MakersMarket.Web.Areas.Store.Controllers
                     Title = s.Name,
                     Description = s.Description,
                     UserId = s.UserId,
-                    ImagePath = s.Images.FirstOrDefault().ImagePath
+                    ImagePath = (s.Images.FirstOrDefault().ImagePath == null ? "~/Content/images/camera-no-image.jpg" : s.Images.FirstOrDefault().ImagePath) 
                 }).ToList();
 
             var pagedModel = new ShopsPagedViewModel()
@@ -65,7 +65,7 @@ namespace MakersMarket.Web.Areas.Store.Controllers
                     Id = p.Id,
                     Name = p.Name,
                     Price = p.Price,
-                    Images = p.Images,
+                    Image = (p.Images.FirstOrDefault().ImagePath == null ? "/Content/images/camera-no-image.jpg" : p.Images.FirstOrDefault().ImagePath),
                     ShopId = p.ShopId,
                     Description = p.Description
                 })

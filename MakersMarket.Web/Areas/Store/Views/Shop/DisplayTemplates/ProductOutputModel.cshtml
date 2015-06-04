@@ -2,7 +2,7 @@
            
 <div id="product-grid">
     <a href="@Url.Action("Details", "Product", new { id = Model.Id })">
-        <div class="product-in-grid" style="background-image: url('@Model.Images.FirstOrDefault().ImagePath');">
+        <div class="product-in-grid" style="background-image: url('@Model.Image');">
             <div id="details-background">
                 <div id="details">
                     <h4>@Html.DisplayFor(modelItem => Model.Name)</h4>

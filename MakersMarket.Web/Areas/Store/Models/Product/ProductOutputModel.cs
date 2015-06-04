@@ -10,11 +10,6 @@ namespace MakersMarket.Web.Areas.Store.Models.Product
 
     public class ProductOutputModel
     {
-        public ProductOutputModel()
-        {
-            this.Images = new HashSet<Image>();
-        }
-
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -25,6 +20,6 @@ namespace MakersMarket.Web.Areas.Store.Models.Product
 
         public string Description { get; set; }
 
-        public ICollection<Image> Images { get; set; }
+        public string Image { get; set; }
     }
 }

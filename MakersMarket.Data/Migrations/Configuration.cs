@@ -67,7 +67,7 @@ namespace MakersMarket.Data.Migrations
                 context.Categories.Add(woodCraft);
                 Category interior = new Category()
                 {
-                    Name = "Inerior",
+                    Name = "Interior",
                     Description = "Item for interior decoration."
                 };
                 context.Categories.Add(interior);

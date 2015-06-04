@@ -12,6 +12,7 @@
     using Web.Controllers;
     using Search;
     using PagedList;
+
     public class ProductController : BaseController
     {
         public ProductController(IMakersMarketData data)
