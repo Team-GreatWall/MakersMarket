@@ -13,23 +13,19 @@
     @Html.ActionLink("Create New", "Create", "Product", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
 </div>
 <div class="row" id="admin-list-headers">
+    <div class="col-xs-3">Image</div>
     <div class="col-xs-3">@Html.DisplayNameFor(model => model.First().Name)</div>
     <div class="col-xs-2">@Html.DisplayNameFor(model => model.First().Price)</div>
-
     <div class="col-xs-1">Редакция</div>
 </div>
 @foreach (var item in Model)
 {
-    @*<img src="@Url.Content(item.Images.First().ImagePath)" style="width:80px" />
-    foreach (var img in item.Images)
-    {
-        <div>
-            @img.ImagePath
-        </div>
-    }*@
 
     <div class="row" style="padding-bottom :9px;border-top: 2px solid slategray; background-color: #f9f9f9">
         <div style=" margin-top: 9px">
+            <div class="col-xs-3">
+                <img style="width:60px; height:60px" src='@item.Images.FirstOrDefault().ImagePath' alt="" />
+                </div>
             <div class="col-xs-3">
                 <p>@Html.DisplayFor(modelItem => item.Brand.Name)</p>
                 <p>@Html.DisplayFor(modelItem => item.Name)</p>
@@ -38,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Price) лв.
             </div>
 
-            <div class="col-xs-4">
+            <div class="col-xs-3">
                 @Html.Partial("_ItemActions", new ViewDataDictionary { { "ItemID", item.Id }, { "ItemType", "Product" } })
             </div>
         </div>

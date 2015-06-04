@@ -11,6 +11,9 @@
     using Data.Data;
     using MakersMarket.Models;
     using PagedList;
+    using MakersMarket.Data;
+    using System.Collections.Generic;
+
     public class ProductController : LoggedUserController
     {
         public ProductController(IMakersMarketData data)
@@ -53,7 +56,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,CategoryID,ShopID,BrandID,IsOnSale,Price,Description")] CreateProductViewModel productData)
+        public ActionResult Create(Product productData)
         {
             if (ModelState.IsValid)
             {
@@ -83,19 +86,26 @@
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Product product = this.Data.Products.Find(id);
+
             if (product == null)
             {
                 return HttpNotFound();
             }
+            var userId = this.UserProfile.Id;
+            
             ViewBag.BrandID = new SelectList(this.Data.Brands.All(), "ID", "Name", product.BrandId);
             ViewBag.CategoryID = new SelectList(this.Data.Categories.All(), "ID", "Name", product.CategoryId);
+            ViewBag.ShopID = new SelectList(this.Data.Shops.All().Where(s => s.UserId == userId), "ID", "Name");
+            ViewBag.images=this.Data.Images.All().Where(i => i.ProductId == id).Select(i => i).ToList();
+            
             return View(product);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Name,CategoryID,BrandID,IsOnSale,Price,Description")] Product product)
+        public ActionResult Edit( Product product)
         {
             if (ModelState.IsValid)
             {
@@ -103,6 +113,7 @@
                 this.Data.SaveChanges();
                 return RedirectToAction("Index");
             }
+           
             ViewBag.BrandID = new SelectList(this.Data.Brands.All(), "ID", "Name", product.BrandId);
             ViewBag.CategoryID = new SelectList(this.Data.Categories.All(), "ID", "Name", product.CategoryId);
             return View(product);
@@ -118,18 +129,18 @@
         }
 
         [HttpGet]
-       // [ValidateAntiForgeryToken]
         public ActionResult AddPhoto(int id)
         {
             this.ViewBag.productId = id;
-            return this.View();
+            var images = this.Data.Images.All().Where(i => i.ProductId == id).Select(i => i).ToList();
+            return this.View(images);
         }
 
         [HttpPost]
-       // [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult AddPhoto(int id ,HttpPostedFileBase file)
         {
-         
+            this.ViewBag.productId = id;
             if (file != null && file.ContentLength > 0)
                 try
                 {
@@ -151,8 +162,20 @@
             {
                 ViewBag.Message = "You have not specified a file.";
             }
-            return View();
+         
+            var productImages = this.Data.Images.All().Where(i => i.ProductId == id).Select(i => i).ToList();
+
+            this.ViewBag.images = productImages;
+
+            return Redirect("/LoggedUser/Product/AddPhoto/"+id);
         }
 
+
+        public ActionResult DeletePhoto(int id, int photoId)
+        {
+            this.Data.Images.Delete(photoId);
+            this.Data.SaveChanges();
+            return Redirect("/LoggedUser/Product/AddPhoto/" + id);
+        }
     }
 }
