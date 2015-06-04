@@ -2,6 +2,7 @@
 
 namespace MakersMarket.Data.Repositories
 {
+    using MakersMarket.Models;
     using System.Data.Entity;
     using System.Linq;
     public class GenericRepository<T>:IRepository<T> where T : class

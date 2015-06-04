@@ -32,6 +32,9 @@
         {
             var addedItem = this.Data.Products.All()
                 .Single(p => p.Id == product.Id);
+            var image = this.Data.Images.All().Where(i => i.ProductId == product.Id).ToList();
+            addedItem.Images = image;
+           
             var cart = GetCart();
             cart.Add(addedItem);
 

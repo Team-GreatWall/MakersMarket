@@ -24,7 +24,13 @@
     <div class="row" style="padding-bottom :9px;border-top: 2px solid slategray; background-color: #f9f9f9">
         <div style=" margin-top: 9px">
             <div class="col-xs-3">
+                @if (item.Images.FirstOrDefault() != null) { 
                 <img style="width:60px; height:60px" src='@item.Images.FirstOrDefault().ImagePath' alt="" />
+                }
+                else
+                {
+                    <img style="width:60px; height:60px" src='@Url.Content("~/Content/images/camera-no-image.jpg")' alt="" />
+                }
                 </div>
             <div class="col-xs-3">
                 <p>@Html.DisplayFor(modelItem => item.Brand.Name)</p>

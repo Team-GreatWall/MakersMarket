@@ -32,22 +32,45 @@
             var cartItem = DB.CartItems.All().SingleOrDefault(
                 c => c.CartId == CartId
                 && c.ProductId == item.Id);
-
-            if (cartItem == null)
+            if (item.Images.FirstOrDefault() != null)
             {
-                cartItem = new CartItem
+                if (cartItem == null)
                 {
-                    ProductId = item.Id,
-                    CartId = CartId,
-                    Quantity = 1,
-                    DateCreated = DateTime.Now
-                };
-                DB.CartItems.Add(cartItem);
+                    cartItem = new CartItem
+                    {
+                        ProductId = item.Id,
+                        ProductImage = item.Images.FirstOrDefault().ImagePath,
+                        CartId = CartId,
+                        Quantity = 1,
+                        DateCreated = DateTime.Now
+                    };
+                    DB.CartItems.Add(cartItem);
+                }
+                else
+                {
+                    cartItem.Quantity++;
+                }
             }
             else
             {
-                cartItem.Quantity++;
+                if (cartItem == null)
+                {
+                    cartItem = new CartItem
+                    {
+                        ProductId = item.Id,
+                        CartId = CartId,
+                        Quantity = 1,
+                        DateCreated = DateTime.Now
+                    };
+                    DB.CartItems.Add(cartItem);
+                }
+                else
+                {
+                    cartItem.Quantity++;
+                }
             }
+
+            
 
             DB.SaveChanges();
 

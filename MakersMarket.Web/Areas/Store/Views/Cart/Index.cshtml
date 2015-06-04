@@ -19,12 +19,21 @@
             <tr>
                 <td id="imgCol" class="col-md-6">
                     <div class="productInfo">
-                        <img id="cart-image" class="img-responsive" src="http://files.parsetfss.com/b43d59ee-38b7-4a4d-aea2-8aab8d06ea9c/tfss-bcd8839c-778e-4364-8e6c-2b4b25def120-pasar_fashion_3140_grande.jpg" />
+                        @if (@item.ProductImage == null)
+                        {
+                            <img id="cart-image" class="img-responsive" src="/Content/images/camera-no-image.jpg" alt="" />
+
+                        }
+                        else
+                        {
+                            <img id="cart-image" class="img-responsive" src="@item.ProductImage" />
+                        }
+                       
                     </div>
                     <div id="product-description" class="productInfo">
                         <p>@item.Product.Brand.Name</p>
-                        <p>@item.Product.Name - M</p>
-
+                        <p>@item.Product.Name</p>
+                      
                     </div>
                 </td>
                 <td id="item-operations" class="col-md-2">
